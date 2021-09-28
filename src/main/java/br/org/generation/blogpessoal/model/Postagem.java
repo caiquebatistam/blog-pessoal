@@ -2,6 +2,7 @@ package br.org.generation.blogpessoal.model;
 
 import java.util.Date;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,11 +24,12 @@ public class Postagem {
 	
 	
 	@NotNull(message = "O atributo titulo é obrigatório!")
+	//@Column()
 	@Size(min = 5, max = 100, message = "O Atributo titulo deve ter no mínimo 5 e no máximo 100 caracteres!")
 	private String titulo;
 	
 	@NotNull(message = "O atributo texto é obrigatório!")
-	@Size(min = 10, max = 1000, message = "O Atributo texto deve ter no mínimo 10 e no máximo 1000 caracteres!")
+	@Size(min = 5, max = 1000, message = "O Atributo texto deve ter no mínimo 5 e no máximo 1000 caracteres!")
 	private String texto;
 	
 	@Temporal(TemporalType.TIMESTAMP)
