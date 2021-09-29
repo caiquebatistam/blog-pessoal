@@ -1,5 +1,9 @@
 package br.org.generation.blogpessoal.model;
 
+
+
+
+
 import java.util.Date;
 
 
@@ -7,14 +11,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity // Gera tabela
+
+@Entity // Indica que essa classe vai ser uma entidade do JPA
 @Table(name = "tb_postagens") //Definir nome da tabela // anotação nunca vai ter ;
 public class Postagem {
 
@@ -33,12 +40,21 @@ public class Postagem {
 	private String texto;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date data = new java.sql.Date(System.currentTimeMillis());
+	private Date data = new java.sql.Date(System.currentTimeMillis()); // -> Metodo para saber data e hora de inserção
+	
+	@ManyToOne // tipo de relação que esta classe vai ter com a outra classe
+	@JsonIgnoreProperties("postagem") // evitar lopp infinito
+	private Tema tema;
 	
 	
 	
 	
-	
+	public Tema getTema() {
+		return tema;
+	}
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
 	public long getId() {
 		return id;
 	}
