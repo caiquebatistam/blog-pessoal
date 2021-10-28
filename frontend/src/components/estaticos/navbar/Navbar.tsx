@@ -2,13 +2,13 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
 import './Navbar.css';
 
-
 function Navbar() {
     return (
         <>
             <AppBar position="static" className="navbar-header">
                 <Toolbar variant="dense">
                     <Box style={{ cursor: "pointer" }} >
+                    
                         <Typography variant="h5" color="inherit">
                             BlogPessoal
                         </Typography>

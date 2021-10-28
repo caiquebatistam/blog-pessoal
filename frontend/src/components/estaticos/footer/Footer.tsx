@@ -6,16 +6,16 @@ import {Typography, Box, Grid } from '@material-ui/core';
 
 function Footer() {
     return (
-        <>
+        <footer>
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
                     <Box style={{ backgroundColor: "#000000", height: "120px" }}>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}>Siga-nos nas redes sociais </Typography>
+                            <Typography variant="h5" align="center" gutterBottom style={{ color: "white" }}> Redes Sociais </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
                             <a href="https://github.com/caiquebatistam" target="_blank">
-                                <GithubIcon style={{ fontSize: 50, color: "white" }} />
+                                <GithubIcon  style={{ marginRight :5, fontSize: 50, color: "white" }} />
                             </a>
                             <a href="https://www.instagram.com/caiquebm/" target="_blank">
                                 <InstagramIcon style={{ fontSize: 60, color: "white" }} />
@@ -37,7 +37,7 @@ function Footer() {
                     </Box>
                 </Grid>
             </Grid>
-        </>
+        </footer>
     )
 }
 
