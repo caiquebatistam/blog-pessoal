@@ -2,4 +2,7 @@
     background-color: #000000 !important;
   }
 
-  
+  .text-decorator-none{
+    text-decoration: none;
+
+  }
