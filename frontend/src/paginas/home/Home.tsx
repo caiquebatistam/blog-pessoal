@@ -4,30 +4,16 @@ import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import './Home.css';
 import { useHistory } from 'react-router';
-import { useSelector } from 'react-redux';
-import { TokenState } from '../../store/tokens/tokensReducer';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import useLocalStorage from 'react-use-localstorage';
 
 function Home() {
 
     let history = useHistory();
-    const token = useSelector<TokenState, TokenState["tokens"]>(
-        (state) => state.tokens
-      );
+    const [token, setToken] = useLocalStorage('token');
     
     useEffect(() => {
       if (token == "") {
-        toast.error('Você precisa estar logado', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            theme: "colored",
-            progress: undefined,
-        });
+          alert("Você precisa estar logado")
           history.push("/login")
   
       }
@@ -44,9 +30,7 @@ function Home() {
                         <Box marginRight={1}>
                             <ModalPostagem />
                         </Box>
-                        <Link to="/posts" className="text-decorator-none">
-                            <Button variant="outlined" className='botao'>Ver Postagens</Button>
-                        </Link>
+                        <Button variant="outlined" className='botao'>Ver Postagens</Button>
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
